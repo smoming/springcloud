@@ -13,15 +13,15 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @Slf4j
 @SpringBootApplication
 @EnableEurekaClient
-public class PaymentApplicationLauncher {
+public class Payment8001ApplicationLauncher {
   public static void main(String[] args) {
-    SpringApplication.run(PaymentApplicationLauncher.class, args);
+    SpringApplication.run(Payment8001ApplicationLauncher.class, args);
     log.info("Payment Application Launcher");
 
-    System.out.println("###############################");
-    System.out.println("##                           ##");
-    System.out.println("##  PAYMENT  SERVICE  START  ##");
-    System.out.println("##                           ##");
-    System.out.println("###############################");
+    System.out.println("#####################################");
+    System.out.println("##                                 ##");
+    System.out.println("##  PAYMENT  8001  SERVICE  START  ##");
+    System.out.println("##                                 ##");
+    System.out.println("#####################################");
   }
 }

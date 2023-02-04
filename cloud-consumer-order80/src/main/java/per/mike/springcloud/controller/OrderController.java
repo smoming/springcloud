@@ -19,7 +19,8 @@ import per.mike.springcloud.entities.Payment;
 @RequestMapping("/order/consumer/payment")
 public class OrderController {
 
-  private static final String PAYMENT_URL = "http://localhost:8001";
+  // private static final String PAYMENT_URL = "http://localhost:8001";
+  private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
   @Autowired private RestTemplate restTemplate;
 
