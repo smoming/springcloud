@@ -1,7 +1,10 @@
 package per.mike.springcloud.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +20,13 @@ import per.mike.springcloud.service.PaymentService;
  * @date 2023/02/03
  * @description Payment Controller
  */
+@Slf4j
 @RestController
 @RequestMapping(value = "/payment")
 public class PaymentController {
+
+  //  @Autowired private DiscoveryClient discoveryClient;
+  @Autowired private DiscoveryClient discoveryClient;
   @Autowired private PaymentService paymentService;
 
   @Value("${server.port}")
@@ -43,5 +50,25 @@ public class PaymentController {
     } else {
       return new CommonResult<Payment>(500, "查詢無資料,serverPort: " + serverPort, null);
     }
+  }
+
+  @GetMapping(value = "/discovery")
+  public CommonResult<Object> getDiscovery() {
+
+    for (String svc : discoveryClient.getServices()) {
+      log.info("******" + String.join("\t", svc));
+
+      for (ServiceInstance ins : discoveryClient.getInstances(svc)) {
+        log.info(
+            String.join(
+                "\t",
+                ins.getServiceId(),
+                ins.getHost(),
+                String.valueOf(ins.getPort()),
+                ins.getUri().toString()));
+      }
+    }
+
+    return new CommonResult<Object>(200, "查詢成功", discoveryClient);
   }
 }

@@ -16,9 +16,19 @@ mybatis:
   type-aliases-package: per.mike.springcloud.entities
 
 eureka:
+  instance:
+    instance-id: payment8002
+    #顯示 IP info
+    prefer-ip-address: true
+    #發送給 eureka server 通訊告知服務情況, default: 30s
+    lease-renewal-interval-in-seconds: 1
+    #發送給 eureka server 最後一次通訊告知服務情況, default: 90s
+    lease-expiration-duration-in-seconds: 2
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
+      #單機
       #defaultZone: http://localhost:7001/eureka/
+      #叢集
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
