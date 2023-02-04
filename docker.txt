@@ -1,0 +1,3 @@
+docker run -p 3306:3306 --name mysql5.7.40 -e MYSQL_ROOT_PASSWORD=root -e TZ=Asia/Taipei -d mysql:5.7.40 --default-authentication-plugin=mysql_native_password
+docker run -p 2181:2181 --name zookeeper zookeeper
+docker run -p 8500:8500 --name consul -d consul
