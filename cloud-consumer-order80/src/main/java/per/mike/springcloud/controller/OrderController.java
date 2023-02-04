@@ -13,7 +13,7 @@ import per.mike.springcloud.entities.Payment;
 /**
  * @author DXC Mike
  * @date 2023/02/03
- * @description Order Controller$
+ * @description Order Controller
  */
 @RestController
 @RequestMapping("/order/consumer/payment")
