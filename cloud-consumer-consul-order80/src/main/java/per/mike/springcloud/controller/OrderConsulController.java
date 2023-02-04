@@ -10,19 +10,19 @@ import per.mike.springcloud.entities.CommonResult;
 /**
  * @author DXC Mike
  * @date 2023/02/04
- * @description Order Zk Controller
+ * @description Order Consul Controller
  */
 @RestController
 @RequestMapping("/order/consumer/payment")
-public class OrderZkController {
+public class OrderConsulController {
 
-  // private static final String PAYMENT_URL = "http://localhost:8004";
-  private static final String PAYMENT_URL = "http://cloud-provider-payment-zk";
+  // private static final String PAYMENT_URL = "http://localhost:8006";
+  private static final String PAYMENT_URL = "http://cloud-provider-payment-consul";
 
   @Autowired private RestTemplate restTemplate;
 
-  @GetMapping("/zk")
-  public CommonResult<Integer> zk() {
-    return restTemplate.getForObject(PAYMENT_URL + "/payment/zk", CommonResult.class);
+  @GetMapping("/consul")
+  public CommonResult<Integer> consul() {
+    return restTemplate.getForObject(PAYMENT_URL + "/payment/consul", CommonResult.class);
   }
 }

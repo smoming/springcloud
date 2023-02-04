@@ -13,14 +13,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @Slf4j
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Payment8004ApplicationLauncher {
+public class Payment8006ApplicationLauncher {
   public static void main(String[] args) {
-    SpringApplication.run(Payment8004ApplicationLauncher.class, args);
-    log.info("Payment Zk Application Launcher");
+    SpringApplication.run(Payment8006ApplicationLauncher.class, args);
+    log.info("Payment Consul Application Launcher");
 
     System.out.println("#####################################");
     System.out.println("##                                 ##");
-    System.out.println("##  PAYMENT  8004  SERVICE  START  ##");
+    System.out.println("##  PAYMENT  8006  SERVICE  START  ##");
     System.out.println("##                                 ##");
     System.out.println("#####################################");
   }
