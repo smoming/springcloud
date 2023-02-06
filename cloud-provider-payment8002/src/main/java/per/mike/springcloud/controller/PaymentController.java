@@ -44,4 +44,9 @@ public class PaymentController {
       return new CommonResult<Payment>(500, "查詢無資料,serverPort: " + serverPort, null);
     }
   }
+
+  @GetMapping(value = "/lb")
+  public CommonResult<String> getLb() {
+    return new CommonResult<String>(200, "調用成功 for LB", serverPort);
+  }
 }

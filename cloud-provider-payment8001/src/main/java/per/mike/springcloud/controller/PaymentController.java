@@ -71,4 +71,9 @@ public class PaymentController {
 
     return new CommonResult<Object>(200, "查詢成功", discoveryClient);
   }
+
+  @GetMapping(value = "/lb")
+  public CommonResult<String> getLb() {
+    return new CommonResult<String>(200, "調用成功 for LB", serverPort);
+  }
 }
