@@ -12,8 +12,8 @@ eureka:
       defaultZone: http://eureka7002.com:7002/eureka/
       #非叢集指向自己eureka server
       #defaultZone: http://eureka7001.com:7001/eureka/
-  server:
-    #關閉自我保護機制, default: true
-    enable-self-preservation: false
-    #調整偵測服務健康度區間, default: 90000ms
-    eviction-interval-timer-in-ms: 2000
+#  server:
+#    #關閉自我保護機制, default: true
+#    enable-self-preservation: false
+#    #調整偵測服務健康度區間, default: 90000ms
+#    eviction-interval-timer-in-ms: 2000
