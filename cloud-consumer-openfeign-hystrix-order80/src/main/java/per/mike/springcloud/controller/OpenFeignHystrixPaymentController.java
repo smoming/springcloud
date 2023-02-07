@@ -1,7 +1,7 @@
 package per.mike.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +17,7 @@ import per.mike.springcloud.service.OpenFeignHystrixPaymentService;
  */
 @RestController
 @RequestMapping("/order/consumer/payment")
+@DefaultProperties(defaultFallback = "paymentInfoTimeoutHandlerForGlobal")
 public class OpenFeignHystrixPaymentController {
 
   @Autowired private OpenFeignHystrixPaymentService openFeignHystrixPaymentService;
@@ -27,11 +28,13 @@ public class OpenFeignHystrixPaymentController {
   }
 
   @GetMapping("/hystrix/timeout/{id}")
-  @HystrixCommand(
-      fallbackMethod = "paymentInfoTimeoutHandler",
-      commandProperties = {
-        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
-      })
+  //  @HystrixCommand(
+  //      fallbackMethod = "paymentInfoTimeoutHandler",
+  //      commandProperties = {
+  //        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value =
+  // "1500")
+  //      })
+  @HystrixCommand
   public CommonResult<String> paymentInfoTimeout(@PathVariable("id") Long id) {
     return openFeignHystrixPaymentService.paymentInfoTimeout(id);
   }
@@ -43,6 +46,16 @@ public class OpenFeignHystrixPaymentController {
             + Thread.currentThread().getName()
             + " paymentInfoTimeoutHandler, id: "
             + id
+            + " 支付系統超時或異常, 請稍後再試... ",
+        null);
+  }
+
+  public CommonResult<String> paymentInfoTimeoutHandlerForGlobal() {
+    return new CommonResult<String>(
+        500,
+        "Global 下單系統80, 執行緒: "
+            + Thread.currentThread().getName()
+            + " paymentInfoTimeoutHandlerForGlobal,"
             + " 支付系統超時或異常, 請稍後再試... ",
         null);
   }
