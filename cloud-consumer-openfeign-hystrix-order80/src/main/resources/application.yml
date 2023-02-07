@@ -22,3 +22,6 @@ ribbon:
 #  level:
 #    # set log level for interface
 #    per.mike.springcloud.service.OpenFeignPaymentService: debug
+feign:
+  hystrix:
+    enabled: true
