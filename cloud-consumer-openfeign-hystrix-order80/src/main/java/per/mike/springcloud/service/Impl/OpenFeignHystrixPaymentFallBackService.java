@@ -10,7 +10,7 @@ import per.mike.springcloud.service.OpenFeignHystrixPaymentService;
  * @description OpenFeignHystrixPaymentFullBackService$
  */
 @Component
-public class OpenFeignHystrixPaymentFullBackService implements OpenFeignHystrixPaymentService {
+public class OpenFeignHystrixPaymentFallBackService implements OpenFeignHystrixPaymentService {
 
   @Override
   public CommonResult<String> paymentInfoOk(Long id) {

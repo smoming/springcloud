@@ -38,4 +38,12 @@ public class PaymentController {
     log.info("*****result: " + result);
     return new CommonResult<String>(200, "Timeout 調用成功 for Hystrix", result);
   }
+
+  // 服務熔斷
+  @GetMapping(value = "/circuit/{id}")
+  public CommonResult<String> paymentCircuitBreaker(@PathVariable("id") Long id) {
+    String result = paymentService.paymentCircuitBreaker(id);
+    log.info("*****result: " + result);
+    return new CommonResult<String>(200, "調用成功 for Circuit", result);
+  }
 }
