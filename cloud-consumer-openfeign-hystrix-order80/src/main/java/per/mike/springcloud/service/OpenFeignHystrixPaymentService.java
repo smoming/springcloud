@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import per.mike.springcloud.entities.CommonResult;
+import per.mike.springcloud.service.Impl.OpenFeignHystrixPaymentFullBackService;
 
 /**
  * @author DXC Mike
@@ -12,7 +13,9 @@ import per.mike.springcloud.entities.CommonResult;
  * @description Payment Service
  */
 @Component
-@FeignClient(value = "CLOUD-PAYMENT-HYSTRIX-SERVICE")
+@FeignClient(
+    value = "CLOUD-PAYMENT-HYSTRIX-SERVICE",
+    fallback = OpenFeignHystrixPaymentFullBackService.class)
 public interface OpenFeignHystrixPaymentService {
 
   @GetMapping("/payment/hystrix/ok/{id}")
