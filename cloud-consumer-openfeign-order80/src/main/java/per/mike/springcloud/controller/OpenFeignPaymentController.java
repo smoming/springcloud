@@ -24,4 +24,9 @@ public class OpenFeignPaymentController {
   public CommonResult<Payment> getOpenFeignPayment(@PathVariable("id") Long id) {
     return openFeignPaymentService.getPaymentById(id);
   }
+
+  @GetMapping("/openfeign/timeout")
+  public CommonResult<String> getOpenfeignTimeout() {
+    return openFeignPaymentService.getOpenfeignTimeout();
+  }
 }

@@ -1,5 +1,6 @@
 package per.mike.springcloud.controller;
 
+import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,5 +49,15 @@ public class PaymentController {
   @GetMapping(value = "/lb")
   public CommonResult<String> getLb() {
     return new CommonResult<String>(200, "調用成功 for LB", serverPort);
+  }
+
+  @GetMapping(value = "/openfeign/timeout")
+  public CommonResult<String> getOpenfeignTimeout() {
+    try {
+      TimeUnit.SECONDS.sleep(3);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    return new CommonResult<String>(200, "調用成功 for openfeign timeout", serverPort);
   }
 }
