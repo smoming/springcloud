@@ -18,3 +18,7 @@ ribbon:
   ReadTimeout: 5000
   # config connect timeout 5000ms, 建立連線
   ConnectTimeout: 5000
+logging:
+  level:
+    # set log level for interface
+    per.mike.springcloud.service.OpenFeignPaymentService: debug
