@@ -3,13 +3,19 @@ server:
 
 spring:
   application:
-    name: cloud-config-client
+    name: cloud-config-client3355
   cloud:
     config:
       label: main
       name: config
       profile: dev
       uri: http://localhost:3344
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
 
 eureka:
   instance:

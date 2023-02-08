@@ -1,20 +1,16 @@
 server:
-  port: 3344
+  port: 3366
 
 spring:
   application:
-    name: cloud-config-service
+    name: cloud-config-client3366
   cloud:
     config:
-      server:
-        git:
-          #uri: git@github.com:smoming/springcloud-config.git
-          uri: https://github.com/smoming/springcloud-config.git
-          search-paths: #搜尋目標
-            - springcloud-config
-      # 讀取分支 default read master
-      #label: master
-
+      label: main
+      name: config
+      profile: dev
+      uri: http://localhost:3344
+      
   rabbitmq:
     host: localhost
     port: 5672
@@ -23,7 +19,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: config3344
+    instance-id: config3366
     #顯示 IP info
     prefer-ip-address: true
     #發送給 eureka server 通訊告知服務情況, default: 30s
@@ -43,4 +39,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "bus-refresh"
+        include: "*"

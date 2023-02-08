@@ -14,14 +14,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootApplication
 @EnableEurekaClient
-public class Config3355ApplicationLauncher {
+public class Config3366ApplicationLauncher {
 	public static void main(String[] args) {
-		SpringApplication.run(Config3355ApplicationLauncher.class, args);
-		log.info("Config 3355 Application Launcher");
+		SpringApplication.run(Config3366ApplicationLauncher.class, args);
+		log.info("Config 3366 Application Launcher");
 
 		System.out.println("####################################");
 		System.out.println("##                                ##");
-		System.out.println("##  CONFIG  3355  SERVICE  START  ##");
+		System.out.println("##  CONFIG  3366  SERVICE  START  ##");
 		System.out.println("##                                ##");
 		System.out.println("####################################");
 	}
