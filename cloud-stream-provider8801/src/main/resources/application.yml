@@ -1,0 +1,41 @@
+server:
+  port: 8801
+
+spring:
+  application:
+    name: cloud-stream-provider-service
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: root
+                password: root
+      bindings:
+        output:
+          destination: studyExchange
+          content-type: application/json
+          binder: defaultRabbit
+
+eureka:
+  instance:
+    instance-id: config3344
+    #顯示 IP info
+    prefer-ip-address: true
+    #發送給 eureka server 通訊告知服務情況, default: 30s
+    #lease-renewal-interval-in-seconds: 1
+    #發送給 eureka server 最後一次通訊告知服務情況, default: 90s
+    #lease-expiration-duration-in-seconds: 2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #單機
+      #defaultZone: http://localhost:7001/eureka/
+      #叢集
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
