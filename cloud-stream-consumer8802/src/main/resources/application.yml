@@ -1,9 +1,9 @@
 server:
-  port: 8801
+  port: 8802
 
 spring:
   application:
-    name: cloud-stream-provider-service
+    name: cloud-stream-consumer-service
   cloud:
     stream:
       binders:
@@ -17,14 +17,14 @@ spring:
                 username: root
                 password: root
       bindings:
-        output:
+        input:
           destination: studyExchange
           content-type: application/json
           binder: defaultRabbit
 
 eureka:
   instance:
-    instance-id: provider8801
+    instance-id: consumer8802
     #顯示 IP info
     prefer-ip-address: true
     #發送給 eureka server 通訊告知服務情況, default: 30s
