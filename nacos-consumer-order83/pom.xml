@@ -5,9 +5,9 @@
     <artifactId>cloud2020</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>cloud-consumer-order83</artifactId>
+  <artifactId>nacos-consumer-order83</artifactId>
   
-<dependencies>
+  <dependencies>
     <!--nacos-->
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
@@ -39,5 +39,5 @@
       <version>${project.version}</version>
     </dependency>
   </dependencies>
-
+  
 </project>
