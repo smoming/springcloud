@@ -27,8 +27,8 @@ import per.mike.springcloud.loadbalance.myLb;
 @RequestMapping("/order/consumer/payment")
 public class OrderController {
 
-	private static final String PAYMENT_URL = "http://localhost:8001";
-//	private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+	private static final String PAYMENT_URL_LOCALHOST = "http://localhost:8001";
+	private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -86,7 +86,7 @@ public class OrderController {
 
 	@GetMapping("/zipkin")
 	public CommonResult zipkin() {
-		CommonResult res = restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", CommonResult.class);
+		CommonResult res = restTemplate.getForObject(PAYMENT_URL_LOCALHOST + "/payment/zipkin", CommonResult.class);
 		return res;
 	}
 }

@@ -29,6 +29,8 @@
     <module>cloud-stream-provider8801</module>
     <module>cloud-stream-consumer8802</module>
     <module>cloud-stream-consumer8803</module>
+    <module>nacos-payment9001</module>
+    <module>nacos-payment9002</module>
   </modules>
   <packaging>pom</packaging>
 
