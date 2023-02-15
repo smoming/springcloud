@@ -33,6 +33,7 @@
     <module>nacos-payment9002</module>
     <module>nacos-consumer-order83</module>
     <module>nacos-config-client3377</module>
+    <module>nacos-sentinel-service8401</module>
   </modules>
   <packaging>pom</packaging>
 
