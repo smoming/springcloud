@@ -34,6 +34,9 @@
     <module>nacos-consumer-order83</module>
     <module>nacos-config-client3377</module>
     <module>nacos-sentinel-service8401</module>
+    <module>nacos-payment9003</module>
+    <module>nacos-payment9004</module>
+    <module>nacos-order84</module>
   </modules>
   <packaging>pom</packaging>
 
