@@ -33,7 +33,7 @@ public class PaymentController {
 	}
 
 	@GetMapping(value = "/paymentSQL/{id}")
-	public CommonResult<Payment> getNacos(@PathVariable("id") Long id) {
+	public CommonResult<Payment> getPaymentSQL(@PathVariable("id") Long id) {
 		return new CommonResult<Payment>(200, "調用成功 for Sentinel, port: " + serverPort,
 				hashMap.containsKey(id) ? new Payment(id, hashMap.get(id)) : null);
 	}

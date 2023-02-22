@@ -15,6 +15,10 @@ spring:
 
 service-url:
   nacos-user-service: http://cloud-nacos-sentinel-payment-service
+  
+feign:
+  sentinel:
+    enabled: true
 
 management:
   endpoints:

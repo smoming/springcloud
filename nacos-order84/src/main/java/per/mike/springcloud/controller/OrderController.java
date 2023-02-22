@@ -13,6 +13,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 
 import per.mike.springcloud.entities.CommonResult;
 import per.mike.springcloud.entities.Payment;
+import per.mike.springcloud.service.PaymentService;
 
 /**
  * @author DXC Mike
@@ -55,6 +56,14 @@ public class OrderController {
 
 	public CommonResult<Payment> blockHandler(@PathVariable("id") Integer id, BlockException exception) {
 		return new CommonResult<Payment>(500, "blockHandler, exception: " + exception.getMessage(), null);
+	}
+
+	@Autowired
+	private PaymentService paymentService;
+
+	@GetMapping("/paymentSQL/openFeign/{id}")
+	public CommonResult<Payment> getPaymentSQL(@PathVariable("id") Long id) {
+		return paymentService.getPaymentSQL(id);
 	}
 
 }
