@@ -1,0 +1,47 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: SEATA_GROUP
+    nacos:
+      discovery:
+        server-addr: localhost:8848 
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719 
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: per.mike.springcloud.domain
+    
+feign:
+  hystrix:
+    enabled: false 
+
+# sentinel nacos 配置to database
+#      datasource:
+#        ds1: 
+#          nacos:
+#            server-addr: localhost:8848 
+#            data-id: ${spring.application.name}
+#            group-id: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: flow
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' 
